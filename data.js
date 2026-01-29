@@ -1497,7 +1497,7 @@ const COMPANIES = [
     subcapabilities: ["Document Processing", "Semantic Search"],
     missionAreas: ["osint", "humint"],
     description: "Uses AI to analyze and search unstructured text at scale, clustering documents by concept and surfacing relevant information for investigations and discovery.",
-    website: "https://www.brainspace.com",
+    website: "https://www.revealdata.com/product/brainspace",
     useCases: [
       { title: "E-Discovery Support", description: "Rapidly identify relevant documents in legal and investigative matters" },
       { title: "Concept-Based Search", description: "Find related documents even when they don't share keywords" },
@@ -1575,14 +1575,14 @@ const COMPANIES = [
     deploymentContext: { airGapped: "partial", cloudNative: true, onPremise: true, edgeDeployment: false, classification: "Unclassified to Secret" }
   },
   {
-    name: "Koto",
+    name: "Sayari",
     iqtCategory: "AI, Enterprise",
     aiType: "AI-Native",
     capabilities: ["prediction", "knowledge"],
     subcapabilities: ["Risk Scoring", "Entity Resolution"],
     missionAreas: ["counterterror", "osint"],
     description: "Applies AI to assess risk and identify threats by analyzing patterns across multiple data sources, surfacing connections that human analysts might miss.",
-    website: "https://koto.ai",
+    website: "https://sayari.com",
     useCases: [
       { title: "Threat Network Identification", description: "Discover connections between individuals and organizations that indicate threat networks" },
       { title: "Risk Score Generation", description: "Automatically assess and prioritize potential threats based on multi-source analysis" },
@@ -1752,7 +1752,7 @@ const COMPANIES = [
     subcapabilities: ["Deepfake Detection", "Authentication/Identity"],
     missionAreas: ["cyber", "osint", "humint"],
     description: "Detects AI-generated synthetic media including deepfake videos, cloned voices, and manipulated images to protect against disinformation and fraud.",
-    website: "https://www.getreal.com",
+    website: "https://www.getrealsecurity.com",
     useCases: [
       { title: "Disinformation Detection", description: "Identify AI-generated content in social media and news sources" },
       { title: "Voice Authentication", description: "Verify that voice recordings are genuine and not AI-generated clones" },
@@ -1888,7 +1888,7 @@ const COMPANIES = [
     subcapabilities: ["Manipulation", "Autonomous Systems"],
     missionAreas: ["logistics"],
     description: "Engineers soft robotic grippers that use AI to handle delicate and irregularly-shaped objects, automating tasks that were previously impossible for robots.",
-    website: "https://www.softroboticsinc.com",
+    website: "https://www.oxipitalai.com",
     useCases: [
       { title: "Warehouse Automation", description: "Handle diverse items in distribution centers without damaging delicate goods" },
       { title: "Food Service Automation", description: "Automate food handling in commissaries and dining facilities" },
@@ -1905,7 +1905,7 @@ const COMPANIES = [
     subcapabilities: ["Vulnerability Discovery"],
     missionAreas: ["cyber"],
     description: "Provides continuous security validation by automatically testing defenses against real attack techniques, measuring how well security controls actually perform.",
-    website: "https://twenty.com",
+    website: "https://twenty.io",
     useCases: [
       { title: "Continuous Security Testing", description: "Automatically validate security controls against latest attack techniques" },
       { title: "Purple Team Automation", description: "Enable continuous red-blue team exercises without dedicated staff" },
@@ -2218,7 +2218,7 @@ const COMPANIES = [
     subcapabilities: ["Authentication/Identity"],
     missionAreas: ["cyber", "criticalInfra"],
     description: "Secures IoT and embedded devices with lightweight cryptographic identity, enabling secure boot, authentication, and updates for resource-constrained systems.",
-    website: "https://www.mocana.com",
+    website: "https://www.digicert.com/iot/mocana",
     useCases: [
       { title: "IoT Device Security", description: "Provide cryptographic identity for resource-constrained devices" },
       { title: "Secure Boot", description: "Ensure devices only run authorized firmware and software" },
@@ -2266,7 +2266,7 @@ const COMPANIES = [
     subcapabilities: ["Threat Detection"],
     missionAreas: ["cyber"],
     description: "Monitors cloud infrastructure for security misconfigurations and compliance violations, providing continuous visibility into cloud security posture.",
-    website: "https://www.evident.io",
+    website: "https://www.paloaltonetworks.com/prisma/cloud",
     useCases: [
       { title: "Cloud Security Posture", description: "Continuously monitor cloud infrastructure for misconfigurations" },
       { title: "Compliance Validation", description: "Verify cloud deployments meet security and compliance requirements" },
