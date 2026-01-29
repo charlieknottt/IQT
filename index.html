@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQT AI Portfolio | Capability Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%234f8cff' width='32' height='32' rx='6'/%3E%3Ctext x='16' y='22' text-anchor='middle' fill='white' font-family='system-ui' font-weight='600' font-size='16'%3EIQ%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+    <!-- Landing Page -->
+    <section id="landing" class="landing active">
+        <div class="landing-grid"></div>
+        <div class="landing-content">
+            <h1 class="landing-title">Unlock AI for your mission</h1>
+            <button class="landing-btn" onclick="startExplorer()">Begin</button>
+        </div>
+        <div class="scroll-hint">
+            <span>Scroll</span>
+            <div class="scroll-hint-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Progress Indicator -->
+    <div class="progress-bar" id="progress-bar" style="display: none;">
+        <div class="progress-step active" data-step="1" onclick="navigateToStep(1)">
+            <span class="step-num">1</span>
+            <span class="step-label">Mission</span>
+        </div>
+        <div class="progress-line" data-line="1"></div>
+        <div class="progress-step" data-step="2" onclick="navigateToStep(2)">
+            <span class="step-num">2</span>
+            <span class="step-label">Capability</span>
+        </div>
+        <div class="progress-line" data-line="2"></div>
+        <div class="progress-step" data-step="3" onclick="navigateToStep(3)">
+            <span class="step-num">3</span>
+            <span class="step-label">Function</span>
+        </div>
+        <div class="progress-line" data-line="3"></div>
+        <div class="progress-step" data-step="4" onclick="navigateToStep(4)">
+            <span class="step-num">4</span>
+            <span class="step-label">Solutions</span>
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <button class="back-btn" id="back-btn" onclick="goBack()" style="display: none;">
+        <span class="arrow">←</span> Back
+    </button>
+
+    <!-- Stage 1: Mission Selection -->
+    <section id="stage-1" class="stage">
+        <div class="stage-content">
+            <div class="stage-header">
+                <p class="step-indicator">Step 1 of 4</p>
+                <h1>What mission area are you supporting?</h1>
+                <p class="subtitle">Select the mission that best describes your work</p>
+            </div>
+            <div class="options-grid missions-grid" id="mission-options"></div>
+        </div>
+    </section>
+
+    <!-- Stage 2: Capability Selection -->
+    <section id="stage-2" class="stage">
+        <div class="stage-content">
+            <div class="stage-header">
+                <p class="step-indicator">Step 2 of 4</p>
+                <p class="context-badge" id="selected-mission-badge"></p>
+                <h1>What type of AI capability do you need?</h1>
+                <p class="subtitle">Select the AI function most relevant to your challenge</p>
+            </div>
+            <div class="options-grid capabilities-grid" id="capability-options"></div>
+        </div>
+    </section>
+
+    <!-- Stage 3: Specific Function Selection -->
+    <section id="stage-3" class="stage">
+        <div class="stage-content">
+            <div class="stage-header">
+                <p class="step-indicator">Step 3 of 4</p>
+                <p class="context-badge" id="selected-capability-badge"></p>
+                <h1>What specific function do you need?</h1>
+                <p class="subtitle">Narrow down to the exact capability</p>
+            </div>
+            <div class="options-grid functions-grid" id="function-options"></div>
+        </div>
+    </section>
+
+    <!-- Stage 4: Solutions -->
+    <section id="stage-4" class="stage">
+        <div class="stage-content full-width">
+            <div class="stage-header compact">
+                <p class="step-indicator">Step 4 of 4</p>
+                <div class="selection-path" id="selection-path"></div>
+                <h1 id="solutions-title">Companies that can help</h1>
+            </div>
+            <div class="solutions-container">
+                <div class="solutions-sidebar">
+                    <div class="benchmark-card" id="benchmark-card">
+                        <h3>Current AI State</h3>
+                        <div id="benchmark-content"></div>
+                    </div>
+                    <div class="use-cases-card">
+                        <h3>Example Applications</h3>
+                        <ul id="use-cases-list"></ul>
+                    </div>
+                </div>
+                <div class="solutions-main">
+                    <div class="solutions-header">
+                        <span id="solutions-count"></span>
+                        <span class="sort-info">Sorted alphabetically</span>
+                    </div>
+                    <div class="solutions-grid" id="solutions-grid"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Modal -->
+    <div class="modal" id="company-modal">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()" aria-label="Close modal">×</button>
+            <div class="modal-header">
+                <h2 id="modal-company-name"></h2>
+                <span class="company-category" id="modal-category"></span>
+            </div>
+            <p id="modal-description" class="modal-description"></p>
+            <div id="modal-website" class="modal-website"></div>
+
+            <div class="modal-grid">
+                <div class="modal-section">
+                    <h4>AI Capabilities</h4>
+                    <div id="modal-capabilities" class="modal-tags"></div>
+                </div>
+                <div class="modal-section">
+                    <h4>Specific Functions</h4>
+                    <div id="modal-subcapabilities" class="modal-tags secondary"></div>
+                </div>
+            </div>
+
+            <!-- Government Use Cases Section -->
+            <div class="modal-use-cases" id="modal-use-cases-section">
+                <h4>Government Use Cases</h4>
+                <ul class="use-case-list" id="modal-use-cases"></ul>
+            </div>
+
+            <!-- Deployment Context Section -->
+            <div class="modal-deployment" id="modal-deployment-section">
+                <h4>Deployment Context</h4>
+                <div class="deployment-grid" id="modal-deployment"></div>
+            </div>
+
+            <div class="modal-section">
+                <h4>Applicable Mission Areas</h4>
+                <div id="modal-missions" class="modal-missions"></div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-primary" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Nav (appears after first selection) -->
+    <div class="quick-nav" id="quick-nav" style="display: none;">
+        <button onclick="goToLanding()">Start Over</button>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
