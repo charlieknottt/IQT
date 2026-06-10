@@ -2,6 +2,8 @@
 
 An interactive dashboard that helps government partners discover AI solutions from IQT portfolio companies they may not know exist.
 
+**Live demo:** https://iqt-rho.vercel.app
+
 Government mission owners rarely browse venture portfolios by company name. This explorer inverts the search: start from the mission, end at the companies. A four-stage flow walks from mission area (defense, homeland security, intelligence, and others) to AI capability type, to the specific function needed, and finally to the matched portfolio companies, each with government use cases and deployment context.
 
 ## How it works
